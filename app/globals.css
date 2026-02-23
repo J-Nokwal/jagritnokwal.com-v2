@@ -1,26 +1,138 @@
 @import "tailwindcss";
+@plugin "tailwindcss-debug-screens";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+  themes: light --default;
+}
 
+/* ================================
+   Fonts (CSS variables approach)
+================================ */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-zinc-600 : #52525b;
+  --font-inter: var(--font-inter);
+  --font-display: var(--font-calsans);
+  --default-font-family: var(--font-inter);
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================================
+   Typography fixes (plugin-free)
+================================ */
+@layer base {
+  code::before,
+  code::after {
+    content: "";
+  }
+
+  blockquote p:first-of-type::before,
+  blockquote p:first-of-type::after {
+    content: none;
+  }
+}
+
+/* ================================
+   Custom utilities
+================================ */
+@layer utilities {
+  .bg-gradient-radial {
+    background-image: radial-gradient(
+      50% 50% at 50% 50%,
+      var(--tw-gradient-stops)
+    );
+  }
+
+  .text-edge-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* ================================
+   Animations & keyframes
+================================ */
+@layer utilities {
+  @keyframes fade-in {
+    0% {
+      opacity: 0%;
+    }
+    75% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+
+  @keyframes fade-left {
+    0% {
+      transform: translateX(100%);
+      opacity: 0%;
+    }
+    30% {
+      transform: translateX(0%);
+      opacity: 100%;
+    }
+    100% {
+      opacity: 0%;
+    }
+  }
+
+  @keyframes fade-right {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0%;
+    }
+    30% {
+      transform: translateX(0%);
+      opacity: 100%;
+    }
+    100% {
+      opacity: 0%;
+    }
+  }
+
+  @keyframes title {
+    0% {
+      line-height: 0%;
+      letter-spacing: 0.25em;
+      opacity: 0%;
+    }
+    25% {
+      line-height: 0%;
+      opacity: 0%;
+    }
+    80% {
+      opacity: 100%;
+    }
+    100% {
+      line-height: 100%;
+      opacity: 100%;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 3s ease-in-out forwards;
+  }
+
+  .animate-fade-left {
+    animation: fade-left 3s ease-in-out forwards;
+  }
+
+  .animate-fade-right {
+    animation: fade-right 3s ease-in-out forwards;
+  }
+
+  .animate-title {
+    animation: title 3s ease-out forwards;
+  }
 }
