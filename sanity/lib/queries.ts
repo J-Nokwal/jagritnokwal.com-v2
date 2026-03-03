@@ -41,6 +41,6 @@ export const projectDataQuery = groq`*[_type == "project" && slug.current == $sl
   "content": content[],
 }`;
 
-const getAllProjectSlugsQuery = groq`*[_type == "project" && defined(slug.current) && visible == true]{
+export const getAllProjectSlugsQuery = groq`*[_type == "project" && defined(slug.current) && visible == true]{
   "slug": slug.current
 }`;

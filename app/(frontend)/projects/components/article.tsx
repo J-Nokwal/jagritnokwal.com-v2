@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Eye,  } from "lucide-react";
-import {  ProjectspageDataQueryResult } from "@/sanity/types";
+import {  ProjectsPageDataQueryResult } from "@/sanity/types";
 
 type Props = {
-	project: ProjectspageDataQueryResult["projects"][number];
+	project: ProjectsPageDataQueryResult["projects"][number];
 	views: number;
 };
 

@@ -1,5 +1,5 @@
 import { getClient } from "@/sanity/lib/client";
-import { projectDataQuery, projectsPageDataQuery } from "@/sanity/lib/queries";
+import { getAllProjectSlugsQuery, projectDataQuery, projectsPageDataQuery } from "@/sanity/lib/queries";
 import { ProjectDataQueryResult,  ProjectsPageDataQueryResult } from "@/sanity/types"
 
 export async function getProjectpageData(): Promise<ProjectsPageDataQueryResult>{
