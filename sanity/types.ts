@@ -446,6 +446,20 @@ export type Geopoint = {
 export type AllSanitySchemaTypes = SettingsProjects | SeoFields | Settings | HorizontalImageGroup | Tag | Slug | Project | SanityImageCrop | SanityImageHotspot | InlineBadge | Color | InlineChip | RgbaColor | HsvaColor | HslaColor | Robots | MetaTag | MetaAttribute | Twitter | OpenGraph | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.ts
+// Variable: settingsQuery
+// Query: *[_type == "settings"][0]
+export type SettingsQueryResult = {
+  _id: string;
+  _type: "settings";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  forcedRobots?: {
+    index?: boolean;
+    follow?: boolean;
+  };
+  seo?: SeoFields;
+} | null;
 // Variable: projectsPageDataQuery
 // Query: {  "featuredIds": *[_type == "settingsProjects"][0].featuredProjects[]._ref,  "projects": *[    _type == "project" &&    visible == true  ] | order(date desc) {    _id,    "slug": slug.current,    title,    description,    date,    "tags": tags[]->{      _id,      title,      "slug": slug.current    }  }}
 export type ProjectsPageDataQueryResult = {
@@ -527,6 +541,7 @@ export type GetAllProjectSlugsQueryResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
+    "*[_type == \"settings\"][0]": SettingsQueryResult;
     "{\n  \"featuredIds\": *[_type == \"settingsProjects\"][0].featuredProjects[]._ref,\n\n  \"projects\": *[\n    _type == \"project\" &&\n    visible == true\n  ] | order(date desc) {\n    _id,\n    \"slug\": slug.current,\n    title,\n    description,\n    date,\n\n    \"tags\": tags[]->{\n      _id,\n      title,\n      \"slug\": slug.current\n    }\n  }\n}": ProjectsPageDataQueryResult;
     "*[_type == \"project\" && slug.current == $slug][0]{\n  _id,\n  title,\n  description,\n  date,\n  repository,\n  url,\n\n  \"slug\": slug.current,\n\n  \"tags\": tags[]->{\n    _id,\n    title,\n    \"slug\": slug.current\n  },\n  \"content\": content[],\n}": ProjectDataQueryResult;
     "*[_type == \"project\" && defined(slug.current) && visible == true]{\n  \"slug\": slug.current\n}": GetAllProjectSlugsQueryResult;

@@ -1,4 +1,5 @@
 import groq from "groq";
+export const settingsQuery = groq`*[_type == "settings"][0]`;
 
 export const projectsPageDataQuery = groq`{
   "featuredIds": *[_type == "settingsProjects"][0].featuredProjects[]._ref,

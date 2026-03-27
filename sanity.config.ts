@@ -15,6 +15,7 @@ import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema, settingsSchemaTypes } from "./sanity/schemaTypes";
 import { colorInput } from "@sanity/color-input";
 import { appPlugin, settingsStructure } from "./sanity/plugins/structure";
+import { pageviewsPlugin } from "./sanity/plugins/pageviews";
 
 export default defineConfig({
   basePath: "/studio",
@@ -35,8 +36,11 @@ export default defineConfig({
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
-    seofields(),
+    seofields({
+      healthDashboard: false,
+    }),
     unsplashImageAsset(),
     colorInput(),
+    pageviewsPlugin(),
   ],
 });
