@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Redis } from "@upstash/redis";
-import { getProjectData } from "@/action/project";
+import { getAllProjectSlugs, getProjectData } from "@/action/project";
 import { ProjectDataQueryResult } from "@/sanity/types";
 import { Header } from "./components/header";
 import { ReportView } from "./components/view";
@@ -18,13 +18,12 @@ type Props = {
 
 const redis = Redis.fromEnv();
 
-// export async function generateStaticParams(): Promise<Props["params"][]> {
-//   return allProjects
-//     .filter((p) => p.published)
-//     .map((p) => ({
-//       slug: p.slug,
-//     }));
-// }
+export async function generateStaticParams(): Promise<Props["params"][]> {
+    const projectSlugs : { slug: string }[] = await getAllProjectSlugs();
+      return projectSlugs.map((p) => ({
+        slug: p.slug,
+      }));
+}
 
 export default async function PostPage({
   params,

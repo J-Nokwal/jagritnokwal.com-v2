@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import {  Inter } from "next/font/google";
 import LocalFont from "next/font/local";
 import "./globals.css";
-import { getSettings } from "@/action/setting";
-import { applyForcedRobots, seoToMetadata } from "./components/seoToMetadata";
 import Script from "next/script";
+import Analytics from "./components/Analytics";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -22,24 +21,6 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
-
-export async function generateMetadata(): Promise<Metadata> {
-  const settings = await getSettings();
-  const defaultSeo: Metadata = {
-    icons: {
-      icon: [
-        { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
-        { url: "/icon1.png", sizes: "48x48", type: "image/png" },
-        { url: "/icon2.png", sizes: "96x96", type: "image/png" },
-      ],
-      apple: "/apple-icon.png",
-    },
-
-    metadataBase: new URL("https://www.jagritnokwal.com"),
-    ...seoToMetadata(settings?.seo),
-  };
-  return applyForcedRobots(defaultSeo, settings?.forcedRobots);
-}
 
 export default function RootLayout({
   children,
@@ -102,6 +83,7 @@ export default function RootLayout({
       <body
         className={`bg-black ${inter.variable} ${calSans.variable} ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined} antialiased font-inter`}
       >
+        <Analytics />
         {children}
       </body>
     </html>
