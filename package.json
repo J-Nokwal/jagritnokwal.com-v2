@@ -37,7 +37,7 @@
     "@types/react-dom": "^19",
     "daisyui": "^5.5.14",
     "eslint": "^10.1.0",
-    "eslint-config-next": "^12.0.4",
+    "eslint-config-next": "^16.2.1",
     "tailwindcss": "^4",
     "tailwindcss-debug-screens": "^3.0.1",
     "typescript": "^5"
