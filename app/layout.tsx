@@ -36,9 +36,8 @@ export default function RootLayout({
     image: "https://jagritnokwal.com/profile.jpg",
     jobTitle: "Software Engineer",
     sameAs: [
-      "https://github.com/YOUR_USERNAME",
-      "https://linkedin.com/in/YOUR_USERNAME",
-      "https://twitter.com/YOUR_USERNAME",
+      "https://github.com/J-Nokwal",
+      "https://linkedin.com/in/jagrit-nokwal",
     ],
     knowsAbout: [
       "Flutter",
