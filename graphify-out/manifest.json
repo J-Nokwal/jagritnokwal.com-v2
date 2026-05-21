@@ -1,0 +1,342 @@
+{
+  "/home/rockbot/Documents/jagritnokwal.com-v2/next.config.ts": {
+    "mtime": 1770300326.5634472,
+    "ast_hash": "a238a37cf83122512a8b4ff4d98f6b34",
+    "semantic_hash": "a238a37cf83122512a8b4ff4d98f6b34"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/eslint.config.mjs": {
+    "mtime": 1768658326.1480432,
+    "ast_hash": "dfa1f5f6a7037bf39dc510f30b180002",
+    "semantic_hash": "dfa1f5f6a7037bf39dc510f30b180002"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/postcss.config.mjs": {
+    "mtime": 1768658326.148221,
+    "ast_hash": "239f3ebf717465dc636818a1a619398d",
+    "semantic_hash": "239f3ebf717465dc636818a1a619398d"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/tsconfig.json": {
+    "mtime": 1768658326.1566918,
+    "ast_hash": "02fc19ad21338c2ab820a70136310db4",
+    "semantic_hash": "02fc19ad21338c2ab820a70136310db4"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/package.json": {
+    "mtime": 1778244385.3669577,
+    "ast_hash": "cbe475fb6261ad5bcc6c8a0691e4600f",
+    "semantic_hash": "cbe475fb6261ad5bcc6c8a0691e4600f"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity.config.ts": {
+    "mtime": 1774611971.0039554,
+    "ast_hash": "7ede50c83a20892184ad6ccc283c2bc8",
+    "semantic_hash": "7ede50c83a20892184ad6ccc283c2bc8"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity.cli.ts": {
+    "mtime": 1768658984.9922016,
+    "ast_hash": "a45cea67df40efde1d7540c82138ffdd",
+    "semantic_hash": "a45cea67df40efde1d7540c82138ffdd"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity-typegen.json": {
+    "mtime": 1768659284.6293738,
+    "ast_hash": "25c22cdeeebc82f27c856de6d40b571a",
+    "semantic_hash": "25c22cdeeebc82f27c856de6d40b571a"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/proxy.ts": {
+    "mtime": 1774605160.2511282,
+    "ast_hash": "9fb246b276d0585094d9442d3bb2d373",
+    "semantic_hash": "9fb246b276d0585094d9442d3bb2d373"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/extract.json": {
+    "mtime": 1774605436.0501056,
+    "ast_hash": "be0135283e20de0ddf9e375e6b394827",
+    "semantic_hash": "be0135283e20de0ddf9e375e6b394827"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/env.ts": {
+    "mtime": 1769865540.3135498,
+    "ast_hash": "dacfd9d23e8e44700d5356fb1ccfd640",
+    "semantic_hash": "dacfd9d23e8e44700d5356fb1ccfd640"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/types.ts": {
+    "mtime": 1774605443.1314,
+    "ast_hash": "a2acfedfdcebda97817706f6c875b51d",
+    "semantic_hash": "a2acfedfdcebda97817706f6c875b51d"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/structure.ts": {
+    "mtime": 1768658989.2141857,
+    "ast_hash": "e595774b45fbc5e0828379b20aeb4d26",
+    "semantic_hash": "e595774b45fbc5e0828379b20aeb4d26"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/components.tsx": {
+    "mtime": 1769591993.6271768,
+    "ast_hash": "30c52aaf93c910484d742c05550fe745",
+    "semantic_hash": "30c52aaf93c910484d742c05550fe745"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/lib/client.ts": {
+    "mtime": 1769865589.3495023,
+    "ast_hash": "6a9e1eccf7ea71d61cc577077e579f24",
+    "semantic_hash": "6a9e1eccf7ea71d61cc577077e579f24"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/lib/live.ts": {
+    "mtime": 1769936569.4801288,
+    "ast_hash": "28c229552524036656acb6cc53bbb12b",
+    "semantic_hash": "28c229552524036656acb6cc53bbb12b"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/lib/image.ts": {
+    "mtime": 1768658989.2131858,
+    "ast_hash": "a3977f08bd8338148d6f6ecad8db8392",
+    "semantic_hash": "a3977f08bd8338148d6f6ecad8db8392"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/lib/queries.ts": {
+    "mtime": 1774605393.9406273,
+    "ast_hash": "effb0adb9cd88bf5cd2761dbd3100d6b",
+    "semantic_hash": "effb0adb9cd88bf5cd2761dbd3100d6b"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/schemaTypes/project.ts": {
+    "mtime": 1769932939.8766582,
+    "ast_hash": "dc3d1da412b9e2f51b91c2030b3f6996",
+    "semantic_hash": "dc3d1da412b9e2f51b91c2030b3f6996"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/schemaTypes/index.ts": {
+    "mtime": 1769865323.4857605,
+    "ast_hash": "3b65580cf141bc934c36d3430c8be38d",
+    "semantic_hash": "3b65580cf141bc934c36d3430c8be38d"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/schemaTypes/tag.ts": {
+    "mtime": 1769868716.4389567,
+    "ast_hash": "8081066a19f194834f389e863af7467c",
+    "semantic_hash": "8081066a19f194834f389e863af7467c"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/schemaTypes/settings/index.ts": {
+    "mtime": 1769861604.0364423,
+    "ast_hash": "5d069160276d52e7b83ab2b01f2b395b",
+    "semantic_hash": "5d069160276d52e7b83ab2b01f2b395b"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/schemaTypes/settings/projects.ts": {
+    "mtime": 1769864422.8536315,
+    "ast_hash": "8cd2e5cb9d2ff2f8705bf9ee13526fca",
+    "semantic_hash": "8cd2e5cb9d2ff2f8705bf9ee13526fca"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/schemaTypes/objects/chip.ts": {
+    "mtime": 1769865359.6217253,
+    "ast_hash": "064b7469fcad42293c7cc4fed802be10",
+    "semantic_hash": "064b7469fcad42293c7cc4fed802be10"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/schemaTypes/objects/horizontalImageGroup.ts": {
+    "mtime": 1769598504.5005903,
+    "ast_hash": "983ae81237aa3bd6b6b159c839da0dcb",
+    "semantic_hash": "983ae81237aa3bd6b6b159c839da0dcb"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/schemaTypes/objects/badge.ts": {
+    "mtime": 1769865297.164786,
+    "ast_hash": "2db6c9f03e4721e89593dd47b0dd8c5a",
+    "semantic_hash": "2db6c9f03e4721e89593dd47b0dd8c5a"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/plugins/structure.ts": {
+    "mtime": 1769863166.8478527,
+    "ast_hash": "626cd45f9115cea06d64ccbfe842d2e4",
+    "semantic_hash": "626cd45f9115cea06d64ccbfe842d2e4"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/plugins/pageviews/index.ts": {
+    "mtime": 1774611994.3419943,
+    "ast_hash": "801bffb316bee47c2f5c1ee9d23e673e",
+    "semantic_hash": "801bffb316bee47c2f5c1ee9d23e673e"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/sanity/plugins/pageviews/PageviewsTool.tsx": {
+    "mtime": 1774613903.8593197,
+    "ast_hash": "e8052da53c5cb55f11f7c415c31f648c",
+    "semantic_hash": "e8052da53c5cb55f11f7c415c31f648c"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/util/mouse.ts": {
+    "mtime": 1768659941.1088767,
+    "ast_hash": "fe6549d30b2dc9e7f249d64078e60ab9",
+    "semantic_hash": "fe6549d30b2dc9e7f249d64078e60ab9"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/layout.tsx": {
+    "mtime": 1774893665.3807328,
+    "ast_hash": "8214f15c1961407f96a71893009ff5bd",
+    "semantic_hash": "8214f15c1961407f96a71893009ff5bd"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/css.d.ts": {
+    "mtime": 1768660502.4257433,
+    "ast_hash": "cc7616a05cbdb8080ecb173348d436cb",
+    "semantic_hash": "cc7616a05cbdb8080ecb173348d436cb"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/sitemap.ts": {
+    "mtime": 1774618008.4584363,
+    "ast_hash": "968ac3d3b4a0cc92872f896bf9f5045f",
+    "semantic_hash": "968ac3d3b4a0cc92872f896bf9f5045f"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/not-found.tsx": {
+    "mtime": 1774616950.0137615,
+    "ast_hash": "f1b512da7906bd4de306037454e10895",
+    "semantic_hash": "f1b512da7906bd4de306037454e10895"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/studio/[[...tool]]/page.tsx": {
+    "mtime": 1774618892.8823926,
+    "ast_hash": "e460cbcc7d69d54cfc5bea468565c7f4",
+    "semantic_hash": "e460cbcc7d69d54cfc5bea468565c7f4"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/studio/[[...tool]]/layout.tsx": {
+    "mtime": 1774618142.0956984,
+    "ast_hash": "005d5566c4c598bc4c2e973900e45b5e",
+    "semantic_hash": "005d5566c4c598bc4c2e973900e45b5e"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/(frontend)/page.tsx": {
+    "mtime": 1774617413.8112586,
+    "ast_hash": "b5b6a1eec57ed0786bbbd884adc128a3",
+    "semantic_hash": "b5b6a1eec57ed0786bbbd884adc128a3"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/(frontend)/layout.tsx": {
+    "mtime": 1774618887.110524,
+    "ast_hash": "0b797530a861e57d692563d03a54007d",
+    "semantic_hash": "0b797530a861e57d692563d03a54007d"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/(frontend)/contact/page.tsx": {
+    "mtime": 1774617814.072839,
+    "ast_hash": "574b84cc56dcbba933cb0bf1862fb9a5",
+    "semantic_hash": "574b84cc56dcbba933cb0bf1862fb9a5"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/(frontend)/projects/page.tsx": {
+    "mtime": 1774617491.5133712,
+    "ast_hash": "b889b634b927ea5d9d99982c26e12284",
+    "semantic_hash": "b889b634b927ea5d9d99982c26e12284"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/(frontend)/projects/layout.tsx": {
+    "mtime": 1774607476.2347372,
+    "ast_hash": "4a84987fa0320ac2b187bd7d79d03940",
+    "semantic_hash": "4a84987fa0320ac2b187bd7d79d03940"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/(frontend)/projects/[slug]/page.tsx": {
+    "mtime": 1774623425.7812247,
+    "ast_hash": "80b7f781acfc2d84cdf4de84ab9a7a74",
+    "semantic_hash": "80b7f781acfc2d84cdf4de84ab9a7a74"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/(frontend)/projects/[slug]/components/header.tsx": {
+    "mtime": 1774893732.031759,
+    "ast_hash": "98e015c3860b89a802616ea14e5474bb",
+    "semantic_hash": "98e015c3860b89a802616ea14e5474bb"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/(frontend)/projects/[slug]/components/view.tsx": {
+    "mtime": 1770299397.6697614,
+    "ast_hash": "96d22b4fcfcd739f1ad45dd1f7977f6d",
+    "semantic_hash": "96d22b4fcfcd739f1ad45dd1f7977f6d"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/(frontend)/projects/components/article.tsx": {
+    "mtime": 1772547435.233407,
+    "ast_hash": "6004c928b9db96f1e6c9b89d9a1be900",
+    "semantic_hash": "6004c928b9db96f1e6c9b89d9a1be900"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/(frontend)/projects/components/filterForm.tsx": {
+    "mtime": 1769935450.9902947,
+    "ast_hash": "9bfcb32f552afee21444b389ed4809b9",
+    "semantic_hash": "9bfcb32f552afee21444b389ed4809b9"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/(frontend)/projects/components/filterButton.tsx": {
+    "mtime": 1769933180.7317102,
+    "ast_hash": "e5f78ef27fb4710bb87ed222487a7870",
+    "semantic_hash": "e5f78ef27fb4710bb87ed222487a7870"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/(frontend)/projects/components/ProjectsLoadingComponent.tsx": {
+    "mtime": 1774607701.2629912,
+    "ast_hash": "1872346fac4cc071e9dea8a8e50a1b63",
+    "semantic_hash": "1872346fac4cc071e9dea8a8e50a1b63"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/(frontend)/blogs/page.tsx": {
+    "mtime": 1772547007.1343515,
+    "ast_hash": "8bff1d8566034434c94b22636fa4fed4",
+    "semantic_hash": "8bff1d8566034434c94b22636fa4fed4"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/components/particles.tsx": {
+    "mtime": 1768660009.6519456,
+    "ast_hash": "64ecbef07dc3af23f45669ea9af2ea09",
+    "semantic_hash": "64ecbef07dc3af23f45669ea9af2ea09"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/components/nav.tsx": {
+    "mtime": 1774616938.7135382,
+    "ast_hash": "535daf0d4faf57d95c20a5c75b75d718",
+    "semantic_hash": "535daf0d4faf57d95c20a5c75b75d718"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/components/card.tsx": {
+    "mtime": 1774811387.8075256,
+    "ast_hash": "0725c33266a61f27caeec6511893b003",
+    "semantic_hash": "0725c33266a61f27caeec6511893b003"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/components/seoToMetadata.tsx": {
+    "mtime": 1774605478.013449,
+    "ast_hash": "94131dea216afe1db1b68e6f40bcda7c",
+    "semantic_hash": "94131dea216afe1db1b68e6f40bcda7c"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/components/Analytics.tsx": {
+    "mtime": 1774623001.4993696,
+    "ast_hash": "e22b0619e62977aefb9cc940c3f8e2cc",
+    "semantic_hash": "e22b0619e62977aefb9cc940c3f8e2cc"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/api/incr/route.ts": {
+    "mtime": 1770303395.4261222,
+    "ast_hash": "aee24c83c86af4ecc3acdc7c3c11940a",
+    "semantic_hash": "aee24c83c86af4ecc3acdc7c3c11940a"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/api/pageviews/route.ts": {
+    "mtime": 1774614179.6966074,
+    "ast_hash": "1d87fb9e6193e74a82012bd2705041e9",
+    "semantic_hash": "1d87fb9e6193e74a82012bd2705041e9"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/api/email/track/route.ts": {
+    "mtime": 1778244512.0120566,
+    "ast_hash": "c7bb63e8fd1b942e7700d06d05f390f6",
+    "semantic_hash": "c7bb63e8fd1b942e7700d06d05f390f6"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/api/email/token/route.ts": {
+    "mtime": 1778244543.8220327,
+    "ast_hash": "23696c6e4087053bc36ccc6cf3e0626a",
+    "semantic_hash": "23696c6e4087053bc36ccc6cf3e0626a"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/api/email/token/count/route.ts": {
+    "mtime": 1778244862.358015,
+    "ast_hash": "e2f92e2a652feb8bc341bce98797731b",
+    "semantic_hash": "e2f92e2a652feb8bc341bce98797731b"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/action/project.ts": {
+    "mtime": 1774612315.2797318,
+    "ast_hash": "8e61e4d618604d2e3567a64d9ec51274",
+    "semantic_hash": "8e61e4d618604d2e3567a64d9ec51274"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/action/setting.ts": {
+    "mtime": 1774605453.361419,
+    "ast_hash": "456464f4cc75b7dcef688b303ba1ec47",
+    "semantic_hash": "456464f4cc75b7dcef688b303ba1ec47"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/lib/redis.ts": {
+    "mtime": 1778244809.1496854,
+    "ast_hash": "5e012b26725aa064d5e5295a3e8faf90",
+    "semantic_hash": "5e012b26725aa064d5e5295a3e8faf90"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/README.md": {
+    "mtime": 1774813110.9648569,
+    "ast_hash": "bb571cde112145414ce36e48056d65d5",
+    "semantic_hash": "bb571cde112145414ce36e48056d65d5"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/icon2.png": {
+    "mtime": 1774605948.4834876,
+    "ast_hash": "6b7886381f02a0f6eac70f4f4a53c3d4",
+    "semantic_hash": "6b7886381f02a0f6eac70f4f4a53c3d4"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/icon1.png": {
+    "mtime": 1774605951.454081,
+    "ast_hash": "f86a814969d640f4d77cee7aa8e55d3a",
+    "semantic_hash": "f86a814969d640f4d77cee7aa8e55d3a"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/app/apple-icon.png": {
+    "mtime": 1774605955.2926338,
+    "ast_hash": "e1b3d1c357d1bec5ad8bc7a5a873e3f6",
+    "semantic_hash": "e1b3d1c357d1bec5ad8bc7a5a873e3f6"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/public/images/card.png": {
+    "mtime": 1774614963.6399071,
+    "ast_hash": "e2f168db286403d487022397b48cbaba",
+    "semantic_hash": "e2f168db286403d487022397b48cbaba"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/public/images/finance-dashboard-logo.png": {
+    "mtime": 1775326754.1431808,
+    "ast_hash": "8012ce836752316c75914848c7c1466e",
+    "semantic_hash": "8012ce836752316c75914848c7c1466e"
+  }
+}

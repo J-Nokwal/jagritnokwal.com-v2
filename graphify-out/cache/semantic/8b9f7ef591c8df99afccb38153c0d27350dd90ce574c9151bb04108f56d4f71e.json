@@ -1,0 +1,1 @@
+{"nodes": [], "edges": [{"source": "components_nav_navigation", "target": "concept_intersection_observer_sticky_bar", "relation": "implements", "confidence": "INFERRED", "confidence_score": 0.85, "source_file": "app/components/nav.tsx", "source_location": "L15-L42", "weight": 1.0}], "hyperedges": []}

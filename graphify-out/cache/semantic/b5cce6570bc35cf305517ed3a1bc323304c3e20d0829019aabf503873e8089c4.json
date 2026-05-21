@@ -1,0 +1,1 @@
+{"nodes": [], "edges": [{"source": "action_setting_getsettings", "target": "concept_next_use_cache", "relation": "implements", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "action/setting.ts", "source_location": "L7-L8", "weight": 1.0}], "hyperedges": []}
