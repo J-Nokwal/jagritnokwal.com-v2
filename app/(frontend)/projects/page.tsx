@@ -6,12 +6,34 @@ import { Article } from "./components/article";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 import { FilterItem } from "./components/filterForm";
+import type { Metadata } from "next";
 
 import { getProjectpageData } from "@/action/project";
 import { ProjectsPageDataQueryResult } from "@/sanity/types";
 import Filters from "./components/filterButton";
-import Script from "next/script";
 import { ExtraProjects } from "./components/ExtraProjects";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "A collection of software projects built with Flutter, Golang, AWS, React, and more.",
+  openGraph: {
+    title: "Projects | Jagrit Nokwal",
+    description:
+      "A collection of software projects built with Flutter, Golang, AWS, React, and more.",
+    url: "https://www.jagritnokwal.com/projects",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects | Jagrit Nokwal",
+    description:
+      "A collection of software projects built with Flutter, Golang, AWS, React, and more.",
+  },
+  alternates: {
+    canonical: "https://www.jagritnokwal.com/projects",
+  },
+};
 
 type Project = ProjectsPageDataQueryResult["projects"][number] & {
   mainProject?: boolean | null;
@@ -134,29 +156,13 @@ export default async function Page({
     name: "Projects - Jagrit Nokwal",
     description:
       "A collection of software projects built using Flutter, Golang, AWS, and modern technologies.",
-    hasPart: [
-      {
-        "@type": "SoftwareApplication",
-        name: "Garage Pro",
-        applicationCategory: "Automotive",
-        operatingSystem: "iOS, Android",
-        description:
-          "Vehicle diagnostics app with OBD scanning, live data, and multilingual reports.",
-        author: {
-          "@id": "https://jagritnokwal.com/#person",
-        },
-      },
-      {
-        "@type": "SoftwareApplication",
-        name: "Car Probe",
-        applicationCategory: "Automotive",
-        description:
-          "Inspection tool for vehicle owners and inspectors with OBD integration.",
-        author: {
-          "@id": "https://jagritnokwal.com/#person",
-        },
-      },
-    ],
+    hasPart: projects.map((p) => ({
+      "@type": "CreativeWork",
+      name: p.title,
+      description: p.description,
+      url: `https://www.jagritnokwal.com/projects/${p.slug}`,
+      author: { "@id": "https://jagritnokwal.com/#person" },
+    })),
   };
 
   const breadcrumbSchema = {
@@ -183,16 +189,13 @@ export default async function Page({
    * -------------------------------------------*/
   return (
     <>
-      <Script
-        id="projects-schema"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(projectsSchema).replace(/</g, "\\u003c"),
         }}
       />
-
-      <Script
-        id="projects-breadcrumb"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),

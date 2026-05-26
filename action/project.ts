@@ -27,12 +27,14 @@ export async function getProjectData(
   const data = await sanityClient.fetch(projectDataQuery, { slug });
   return data;
 }
-export async function getAllProjectSlugs(): Promise<{ slug: string }[]> {
+export async function getAllProjectSlugs(): Promise<
+  { slug: string; _updatedAt?: string; date?: string }[]
+> {
   "use cache";
   const sanityClient = getClient();
-  const data = await sanityClient.fetch<{ slug: string }[]>(
-    getAllProjectSlugsQuery,
-  );
+  const data = await sanityClient.fetch<
+    { slug: string; _updatedAt?: string; date?: string }[]
+  >(getAllProjectSlugsQuery);
   return data;
 }
 

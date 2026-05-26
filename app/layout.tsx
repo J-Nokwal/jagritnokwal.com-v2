@@ -2,8 +2,27 @@ import type { Metadata } from "next";
 import {  Inter } from "next/font/google";
 import LocalFont from "next/font/local";
 import "./globals.css";
-import Script from "next/script";
 import Analytics from "./components/Analytics";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.jagritnokwal.com"),
+  title: {
+    default: "Jagrit Nokwal",
+    template: "%s | Jagrit Nokwal",
+  },
+  description:
+    "Software engineer specializing in Flutter, Golang, AWS, and full-stack development.",
+  openGraph: {
+    type: "website",
+    siteName: "Jagrit Nokwal",
+    locale: "en_US",
+    images: [{ url: "/images/card.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/images/card.png"],
+  },
+};
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -64,15 +83,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script
-          id="person-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(personSchema).replace(/</g, "\\u003c"),
           }}
         />
-        <Script
-          id="website-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteSchema).replace(/</g, "\\u003c"),

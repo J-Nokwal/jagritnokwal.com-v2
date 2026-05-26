@@ -1,9 +1,30 @@
-"use client";
 import { Github, Mail, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../../components/nav";
 import { Card } from "../../components/card";
-import Script from "next/script";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Jagrit Nokwal for freelance work, collaborations, or project inquiries.",
+  openGraph: {
+    title: "Contact | Jagrit Nokwal",
+    description:
+      "Get in touch with Jagrit Nokwal for freelance work, collaborations, or project inquiries.",
+    url: "https://www.jagritnokwal.com/contact",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact | Jagrit Nokwal",
+    description:
+      "Get in touch with Jagrit Nokwal for freelance work, collaborations, or project inquiries.",
+  },
+  alternates: {
+    canonical: "https://www.jagritnokwal.com/contact",
+  },
+};
 
 const socials = [
   {
@@ -26,7 +47,7 @@ const socials = [
   },
 ];
 
-export default function Page() {
+export default async function Page() {
   const contactSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
@@ -60,16 +81,13 @@ export default function Page() {
   };
   return (
     <>
-      <Script
-        id="contact-schema"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(contactSchema).replace(/</g, "\\u003c"),
         }}
       />
-
-      <Script
-        id="contact-breadcrumb"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),

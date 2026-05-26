@@ -9,6 +9,7 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { Key } from "react";
+import type { Metadata } from "next";
 
 type Props = {
   params: {
@@ -17,6 +18,34 @@ type Props = {
 };
 
 const redis = Redis.fromEnv();
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = await getProjectData(slug);
+  if (!project) return {};
+  return {
+    title: project.title,
+    description: project.description ?? undefined,
+    openGraph: {
+      title: project.title ?? undefined,
+      description: project.description ?? undefined,
+      url: `https://www.jagritnokwal.com/projects/${slug}`,
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title ?? undefined,
+      description: project.description ?? undefined,
+    },
+    alternates: {
+      canonical: `https://www.jagritnokwal.com/projects/${slug}`,
+    },
+  };
+}
 
 export async function generateStaticParams(): Promise<Props["params"][]> {
     const projectSlugs : { slug: string }[] = await getAllProjectSlugs();
@@ -42,8 +71,24 @@ export default async function PostPage({
       [ "pageviews", "projects", slug].join(":"),
     )) ?? 0;
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://jagritnokwal.com" },
+      { "@type": "ListItem", position: 2, name: "Projects", item: "https://jagritnokwal.com/projects" },
+      { "@type": "ListItem", position: 3, name: project.title, item: `https://jagritnokwal.com/projects/${project.slug}` },
+    ],
+  };
+
   return (
     <div className="bg-zinc-50 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+        }}
+      />
       <Header
         project={{
           title: project.title,

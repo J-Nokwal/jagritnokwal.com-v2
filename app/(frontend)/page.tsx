@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Particles from "../components/particles";
-import Script from "next/script";
 
 const navigation = [
   { name: "Projects", href: "/projects" },
@@ -25,8 +24,7 @@ export default function Home() {
   };
   return (
     <>
-      <Script
-        id="home-schema"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(homeSchema).replace(/</g, "\\u003c"),

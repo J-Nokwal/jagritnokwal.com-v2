@@ -5,12 +5,14 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projectSlugs = await getAllProjectSlugs();
-  const projectUrls : MetadataRoute.Sitemap = projectSlugs.map(({ slug }) => ({
-    url: `${BASE_URL}/projects/${slug}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: "weekly",
-    priority: 0.7,
-  }));
+  const projectUrls: MetadataRoute.Sitemap = projectSlugs.map(
+    ({ slug, _updatedAt, date }) => ({
+      url: `${BASE_URL}/projects/${slug}`,
+      lastModified: _updatedAt ?? date ?? new Date().toISOString(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    }),
+  );
   return [
     {
       url: `${BASE_URL}/`,

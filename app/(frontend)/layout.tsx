@@ -4,6 +4,10 @@ import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSettings();
+  const sanityMeta = seoToMetadata(settings?.seo);
+  const resolvedTitle =
+    typeof sanityMeta.title === "string" ? sanityMeta.title : "Jagrit Nokwal";
+
   const defaultSeo: Metadata = {
     icons: {
       icon: [
@@ -13,9 +17,12 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
       apple: "/apple-icon.png",
     },
-
     metadataBase: new URL("https://www.jagritnokwal.com"),
-    ...seoToMetadata(settings?.seo),
+    ...sanityMeta,
+    title: {
+      default: resolvedTitle,
+      template: "%s | Jagrit Nokwal",
+    },
   };
   return applyForcedRobots(defaultSeo, settings?.forcedRobots);
 }

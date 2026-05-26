@@ -66,6 +66,11 @@ export function seoToMetadata(seo?: SeoFields): Metadata {
           card: seo.twitter.card,
           site: seo.twitter.site,
           creator: seo.twitter.creator,
+          title: seo.twitter.title ?? seo.openGraph?.title ?? seo.title,
+          description:
+            seo.twitter.description ??
+            seo.openGraph?.description ??
+            seo.description,
         }
       : undefined,
 
