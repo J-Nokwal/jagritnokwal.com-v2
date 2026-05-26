@@ -27,7 +27,8 @@
     "sanity": "^5.18.0",
     "sanity-plugin-asset-source-unsplash": "^7.0.5",
     "sanity-plugin-seofields": "^1.4.1",
-    "styled-components": "^6.3.8"
+    "styled-components": "^6.3.8",
+    "vercel": "^54.4.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

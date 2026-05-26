@@ -16,6 +16,7 @@ import { schema, settingsSchemaTypes } from "./sanity/schemaTypes";
 import { colorInput } from "@sanity/color-input";
 import { appPlugin, settingsStructure } from "./sanity/plugins/structure";
 import { pageviewsPlugin } from "./sanity/plugins/pageviews";
+import { deployPlugin } from "./sanity/plugins/deploy";
 
 export default defineConfig({
   basePath: "/studio",
@@ -42,5 +43,6 @@ export default defineConfig({
     unsplashImageAsset(),
     colorInput(),
     pageviewsPlugin(),
+    deployPlugin(),
   ],
 });
