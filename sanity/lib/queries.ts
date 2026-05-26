@@ -13,6 +13,7 @@ export const projectsPageDataQuery = groq`{
     title,
     description,
     date,
+    mainProject,
 
     "tags": tags[]->{
       _id,

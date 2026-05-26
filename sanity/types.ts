@@ -12,7 +12,70 @@
  * ---------------------------------------------------------------------------------
  */
 
-// Source: schema.json
+export declare const internalGroqTypeReferenceTo: unique symbol;
+
+// Source: sanity/extract.json
+export type SeoOpenGraph = {
+  url?: string;
+  title?: string;
+  description?: string;
+  siteName?: string;
+  type?:
+    | "website"
+    | "article"
+    | "profile"
+    | "book"
+    | "music"
+    | "video"
+    | "product";
+  imageType?: "upload" | "url";
+  image?: OpenGraphImage;
+  imageUrl?: string;
+};
+
+export type SanityImageAssetReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+};
+
+export type OpenGraphImage = {
+  asset?: SanityImageAssetReference;
+  media?: unknown; // Unable to locate the referenced type "openGraph.image.media" in schema
+  hotspot?: SanityImageHotspot;
+  crop?: SanityImageCrop;
+  alt?: string;
+  _type: "image";
+};
+
+export type SeoTwitter = {
+  card?: "summary" | "summary_large_image" | "app" | "player";
+  site?: string;
+  creator?: string;
+  title?: string;
+  description?: string;
+  imageType?: "upload" | "url";
+  image?: TwitterImage;
+  imageUrl?: string;
+};
+
+export type TwitterImage = {
+  asset?: SanityImageAssetReference;
+  media?: unknown; // Unable to locate the referenced type "twitter.image.media" in schema
+  hotspot?: SanityImageHotspot;
+  crop?: SanityImageCrop;
+  alt?: string;
+  _type: "image";
+};
+
+export type ProjectReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "project";
+};
+
 export type SettingsProjects = {
   _id: string;
   _type: "settingsProjects";
@@ -20,13 +83,11 @@ export type SettingsProjects = {
   _updatedAt: string;
   _rev: string;
   seo?: SeoFields;
-  featuredProjects?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "project";
-  }>;
+  featuredProjects?: Array<
+    {
+      _key: string;
+    } & ProjectReference
+  >;
 };
 
 export type SeoFields = {
@@ -35,66 +96,21 @@ export type SeoFields = {
   title?: string;
   description?: string;
   metaImage?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
   };
-  metaAttributes?: Array<{
-    _key: string;
-  } & MetaAttribute>;
+  metaAttributes?: Array<
+    {
+      _key: string;
+    } & MetaAttribute
+  >;
   keywords?: Array<string>;
   canonicalUrl?: string;
-  openGraph?: {
-    url?: string;
-    title?: string;
-    description?: string;
-    siteName?: string;
-    type?: "website" | "article" | "profile" | "book" | "music" | "video" | "product";
-    imageType?: "upload" | "url";
-    image?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      alt?: string;
-      _type: "image";
-    };
-    imageUrl?: string;
-  };
-  twitter?: {
-    card?: "summary" | "summary_large_image" | "app" | "player";
-    site?: string;
-    creator?: string;
-    title?: string;
-    description?: string;
-    imageType?: "upload" | "url";
-    image?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      alt?: string;
-      _type: "image";
-    };
-    imageUrl?: string;
-  };
+  openGraph?: SeoOpenGraph;
+  twitter?: SeoTwitter;
 };
 
 export type Settings = {
@@ -113,12 +129,7 @@ export type Settings = {
 export type HorizontalImageGroup = {
   _type: "horizontalImageGroup";
   images?: Array<{
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
@@ -145,12 +156,20 @@ export type Slug = {
   source?: string;
 };
 
+export type TagReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "tag";
+};
+
 export type Project = {
   _id: string;
   _type: "project";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  mainProject?: boolean;
   visible?: boolean;
   published?: boolean;
   title: string;
@@ -159,51 +178,60 @@ export type Project = {
   date?: string;
   url?: string;
   repository?: string;
-  tags: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "tag";
-  }>;
-  content?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
+  tags: Array<
+    {
       _key: string;
-    }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      _key: string;
-    } & InlineBadge | {
-      _key: string;
-    } & InlineChip | {
-      url?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    caption?: string;
-    alt?: string;
-    _type: "image";
-    _key: string;
-  } | {
-    _key: string;
-  } & HorizontalImageGroup>;
+    } & TagReference
+  >;
+  content?: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?:
+          | "normal"
+          | "h1"
+          | "h2"
+          | "h3"
+          | "h4"
+          | "h5"
+          | "h6"
+          | "blockquote";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<
+          | ({
+              _key: string;
+            } & InlineBadge)
+          | ({
+              _key: string;
+            } & InlineChip)
+          | {
+              url?: string;
+              _type: "link";
+              _key: string;
+            }
+        >;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }
+    | {
+        asset?: SanityImageAssetReference;
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        caption?: string;
+        alt?: string;
+        _type: "image";
+        _key: string;
+      }
+    | ({
+        _key: string;
+      } & HorizontalImageGroup)
+  >;
 };
 
 export type SanityImageCrop = {
@@ -240,7 +268,16 @@ export type Color = {
 
 export type InlineChip = {
   _type: "inlineChip";
-  color?: "gray" | "blue" | "green" | "red" | "yellow" | "purple" | "orange" | "black" | "white";
+  color?:
+    | "gray"
+    | "blue"
+    | "green"
+    | "red"
+    | "yellow"
+    | "purple"
+    | "orange"
+    | "black"
+    | "white";
 };
 
 export type RgbaColor = {
@@ -275,9 +312,11 @@ export type Robots = {
 
 export type MetaTag = {
   _type: "metaTag";
-  metaAttributes?: Array<{
-    _key: string;
-  } & MetaAttribute>;
+  metaAttributes?: Array<
+    {
+      _key: string;
+    } & MetaAttribute
+  >;
 };
 
 export type MetaAttribute = {
@@ -286,12 +325,7 @@ export type MetaAttribute = {
   type?: "string" | "image";
   value?: string;
   image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
@@ -308,12 +342,7 @@ export type Twitter = {
   description?: string;
   imageType?: "upload" | "url";
   image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
@@ -329,15 +358,17 @@ export type OpenGraph = {
   title?: string;
   description?: string;
   siteName?: string;
-  type?: "website" | "article" | "profile" | "book" | "music" | "video" | "product";
+  type?:
+    | "website"
+    | "article"
+    | "profile"
+    | "book"
+    | "music"
+    | "video"
+    | "product";
   imageType?: "upload" | "url";
   image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
@@ -380,6 +411,7 @@ export type SanityImageMetadata = {
   palette?: SanityImagePalette;
   lqip?: string;
   blurHash?: string;
+  thumbHash?: string;
   hasAlpha?: boolean;
   isOpaque?: boolean;
 };
@@ -395,14 +427,14 @@ export type SanityFileAsset = {
   title?: string;
   description?: string;
   altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
+  sha1hash: string;
+  extension: string;
+  mimeType: string;
+  size: number;
+  assetId: string;
   uploadId?: string;
-  path?: string;
-  url?: string;
+  path: string;
+  url: string;
   source?: SanityAssetSourceData;
 };
 
@@ -424,14 +456,14 @@ export type SanityImageAsset = {
   title?: string;
   description?: string;
   altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
+  sha1hash: string;
+  extension: string;
+  mimeType: string;
+  size: number;
+  assetId: string;
   uploadId?: string;
-  path?: string;
-  url?: string;
+  path: string;
+  url: string;
   metadata?: SanityImageMetadata;
   source?: SanityAssetSourceData;
 };
@@ -443,8 +475,43 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = SettingsProjects | SeoFields | Settings | HorizontalImageGroup | Tag | Slug | Project | SanityImageCrop | SanityImageHotspot | InlineBadge | Color | InlineChip | RgbaColor | HsvaColor | HslaColor | Robots | MetaTag | MetaAttribute | Twitter | OpenGraph | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
-export declare const internalGroqTypeReferenceTo: unique symbol;
+export type AllSanitySchemaTypes =
+  | SeoOpenGraph
+  | SanityImageAssetReference
+  | OpenGraphImage
+  | SeoTwitter
+  | TwitterImage
+  | ProjectReference
+  | SettingsProjects
+  | SeoFields
+  | Settings
+  | HorizontalImageGroup
+  | Tag
+  | Slug
+  | TagReference
+  | Project
+  | SanityImageCrop
+  | SanityImageHotspot
+  | InlineBadge
+  | Color
+  | InlineChip
+  | RgbaColor
+  | HsvaColor
+  | HslaColor
+  | Robots
+  | MetaTag
+  | MetaAttribute
+  | Twitter
+  | OpenGraph
+  | SanityImagePaletteSwatch
+  | SanityImagePalette
+  | SanityImageDimensions
+  | SanityImageMetadata
+  | SanityFileAsset
+  | SanityAssetSourceData
+  | SanityImageAsset
+  | Geopoint;
+
 // Source: sanity/lib/queries.ts
 // Variable: settingsQuery
 // Query: *[_type == "settings"][0]
@@ -460,8 +527,10 @@ export type SettingsQueryResult = {
   };
   seo?: SeoFields;
 } | null;
+
+// Source: sanity/lib/queries.ts
 // Variable: projectsPageDataQuery
-// Query: {  "featuredIds": *[_type == "settingsProjects"][0].featuredProjects[]._ref,  "projects": *[    _type == "project" &&    visible == true  ] | order(date desc) {    _id,    "slug": slug.current,    title,    description,    date,    "tags": tags[]->{      _id,      title,      "slug": slug.current    }  }}
+// Query: {  "featuredIds": *[_type == "settingsProjects"][0].featuredProjects[]._ref,  "projects": *[    _type == "project" &&    visible == true  ] | order(date desc) {    _id,    "slug": slug.current,    title,    description,    date,    mainProject,    "tags": tags[]->{      _id,      title,      "slug": slug.current    }  }}
 export type ProjectsPageDataQueryResult = {
   featuredIds: Array<string> | null;
   projects: Array<{
@@ -470,6 +539,7 @@ export type ProjectsPageDataQueryResult = {
     title: string;
     description: string;
     date: string | null;
+    mainProject: boolean | null;
     tags: Array<{
       _id: string;
       title: string;
@@ -477,6 +547,8 @@ export type ProjectsPageDataQueryResult = {
     }>;
   }>;
 };
+
+// Source: sanity/lib/queries.ts
 // Variable: projectDataQuery
 // Query: *[_type == "project" && slug.current == $slug][0]{  _id,  title,  description,  date,  repository,  url,  "slug": slug.current,  "tags": tags[]->{    _id,    title,    "slug": slug.current  },  "content": content[],}
 export type ProjectDataQueryResult = {
@@ -492,45 +564,58 @@ export type ProjectDataQueryResult = {
     title: string;
     slug: string;
   }>;
-  content: Array<{
-    _key: string;
-  } & HorizontalImageGroup | {
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      _key: string;
-    } & InlineBadge | {
-      _key: string;
-    } & InlineChip | {
-      url?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    caption?: string;
-    alt?: string;
-    _type: "image";
-    _key: string;
-  }> | null;
+  content: Array<
+    | ({
+        _key: string;
+      } & HorizontalImageGroup)
+    | {
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?:
+          | "blockquote"
+          | "h1"
+          | "h2"
+          | "h3"
+          | "h4"
+          | "h5"
+          | "h6"
+          | "normal";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<
+          | ({
+              _key: string;
+            } & InlineBadge)
+          | ({
+              _key: string;
+            } & InlineChip)
+          | {
+              url?: string;
+              _type: "link";
+              _key: string;
+            }
+        >;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }
+    | {
+        asset?: SanityImageAssetReference;
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        caption?: string;
+        alt?: string;
+        _type: "image";
+        _key: string;
+      }
+  > | null;
 } | null;
+
+// Source: sanity/lib/queries.ts
 // Variable: getAllProjectSlugsQuery
 // Query: *[_type == "project" && defined(slug.current) && visible == true]{  "slug": slug.current}
 export type GetAllProjectSlugsQueryResult = Array<{
@@ -541,9 +626,9 @@ export type GetAllProjectSlugsQueryResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"settings\"][0]": SettingsQueryResult;
-    "{\n  \"featuredIds\": *[_type == \"settingsProjects\"][0].featuredProjects[]._ref,\n\n  \"projects\": *[\n    _type == \"project\" &&\n    visible == true\n  ] | order(date desc) {\n    _id,\n    \"slug\": slug.current,\n    title,\n    description,\n    date,\n\n    \"tags\": tags[]->{\n      _id,\n      title,\n      \"slug\": slug.current\n    }\n  }\n}": ProjectsPageDataQueryResult;
-    "*[_type == \"project\" && slug.current == $slug][0]{\n  _id,\n  title,\n  description,\n  date,\n  repository,\n  url,\n\n  \"slug\": slug.current,\n\n  \"tags\": tags[]->{\n    _id,\n    title,\n    \"slug\": slug.current\n  },\n  \"content\": content[],\n}": ProjectDataQueryResult;
-    "*[_type == \"project\" && defined(slug.current) && visible == true]{\n  \"slug\": slug.current\n}": GetAllProjectSlugsQueryResult;
+    '*[_type == "settings"][0]': SettingsQueryResult;
+    '{\n  "featuredIds": *[_type == "settingsProjects"][0].featuredProjects[]._ref,\n\n  "projects": *[\n    _type == "project" &&\n    visible == true\n  ] | order(date desc) {\n    _id,\n    "slug": slug.current,\n    title,\n    description,\n    date,\n    mainProject,\n\n    "tags": tags[]->{\n      _id,\n      title,\n      "slug": slug.current\n    }\n  }\n}': ProjectsPageDataQueryResult;
+    '*[_type == "project" && slug.current == $slug][0]{\n  _id,\n  title,\n  description,\n  date,\n  repository,\n  url,\n\n  "slug": slug.current,\n\n  "tags": tags[]->{\n    _id,\n    title,\n    "slug": slug.current\n  },\n  "content": content[],\n}': ProjectDataQueryResult;
+    '*[_type == "project" && defined(slug.current) && visible == true]{\n  "slug": slug.current\n}': GetAllProjectSlugsQueryResult;
   }
 }

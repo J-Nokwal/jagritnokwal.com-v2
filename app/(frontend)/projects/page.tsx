@@ -11,6 +11,11 @@ import { getProjectpageData } from "@/action/project";
 import { ProjectsPageDataQueryResult } from "@/sanity/types";
 import Filters from "./components/filterButton";
 import Script from "next/script";
+import { ExtraProjects } from "./components/ExtraProjects";
+
+type Project = ProjectsPageDataQueryResult["projects"][number] & {
+  mainProject?: boolean | null;
+};
 
 export default async function Page({
   searchParams,
@@ -57,14 +62,23 @@ export default async function Page({
     return { title: slug, slug };
   });
 
+  const allProjects = projects as Project[];
+
   const filteredProjects =
     selectedTags.length > 0
-      ? projects.filter((project) =>
+      ? allProjects.filter((project) =>
           project.tags
             ? project.tags.some((tag) => selectedTagsSlugs.includes(tag.slug))
             : false,
         )
-      : projects;
+      : allProjects;
+
+  const mainFilteredProjects = filteredProjects.filter(
+    (p) => p.mainProject !== false,
+  );
+  const extraFilteredProjects = filteredProjects.filter(
+    (p) => p.mainProject === false,
+  );
 
   const allTags: FilterItem[] = Array.from(
     new Map(
@@ -84,19 +98,18 @@ export default async function Page({
   /* ---------------------------------------------
    * Featured logic (CMS driven)
    * -------------------------------------------*/
-  let featured: ProjectsPageDataQueryResult["projects"][0] | null = null;
-  let top2: ProjectsPageDataQueryResult["projects"][0] | null = null;
-  let top3: ProjectsPageDataQueryResult["projects"][0] | null = null;
-  let sorted: ProjectsPageDataQueryResult["projects"] = [];
+  let featured: Project | null = null;
+  let top2: Project | null = null;
+  let top3: Project | null = null;
+  let sorted: Project[] = [];
   if (featuredIds && featuredIds.length > 0) {
-    const featuredProjects: ProjectsPageDataQueryResult["projects"] =
-      featuredIds!
-        .map((id) => filteredProjects.find((p) => p._id === id))
-        .filter((p) => p !== undefined);
+    const featuredProjects: Project[] = featuredIds!
+      .map((id) => mainFilteredProjects.find((p) => p._id === id))
+      .filter((p) => p !== undefined);
 
     [featured, top2, top3] = featuredProjects;
 
-    sorted = filteredProjects
+    sorted = mainFilteredProjects
       .filter(
         (p) =>
           p._id !== featured?._id && p._id !== top2?._id && p._id !== top3?._id,
@@ -107,7 +120,7 @@ export default async function Page({
           new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
       );
   } else {
-    sorted = filteredProjects.sort(
+    sorted = [...mainFilteredProjects].sort(
       (a, b) =>
         new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
         new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
@@ -315,6 +328,57 @@ export default async function Page({
                     ))}
                 </div>
               </div>
+
+              {extraFilteredProjects.length > 0 && (
+                <ExtraProjects>
+                  <div className="flex items-center gap-4">
+                    <div className="flex-1 bg-zinc-800 h-px" />
+                    <span className="text-zinc-500 text-sm font-medium tracking-wide uppercase">
+                      More Projects
+                    </span>
+                    <div className="flex-1 bg-zinc-800 h-px" />
+                  </div>
+
+                  <div className="gap-4 grid grid-cols-1 md:grid-cols-3 mx-auto lg:mx-0">
+                    <div className="gap-4 grid grid-cols-1">
+                      {extraFilteredProjects
+                        .filter((_, i) => i % 3 === 0)
+                        .map((project) => (
+                          <Card key={project.slug}>
+                            <Article
+                              project={project}
+                              views={views[project.slug] ?? 0}
+                            />
+                          </Card>
+                        ))}
+                    </div>
+                    <div className="gap-4 grid grid-cols-1">
+                      {extraFilteredProjects
+                        .filter((_, i) => i % 3 === 1)
+                        .map((project) => (
+                          <Card key={project.slug}>
+                            <Article
+                              project={project}
+                              views={views[project.slug] ?? 0}
+                            />
+                          </Card>
+                        ))}
+                    </div>
+                    <div className="gap-4 grid grid-cols-1">
+                      {extraFilteredProjects
+                        .filter((_, i) => i % 3 === 2)
+                        .map((project) => (
+                          <Card key={project.slug}>
+                            <Article
+                              project={project}
+                              views={views[project.slug] ?? 0}
+                            />
+                          </Card>
+                        ))}
+                    </div>
+                  </div>
+                </ExtraProjects>
+              )}
             </>
           )}
         </div>

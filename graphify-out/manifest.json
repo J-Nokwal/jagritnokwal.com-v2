@@ -338,5 +338,30 @@
     "mtime": 1775326754.1431808,
     "ast_hash": "8012ce836752316c75914848c7c1466e",
     "semantic_hash": "8012ce836752316c75914848c7c1466e"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/.claude/settings.json": {
+    "mtime": 1779719579.0650601,
+    "ast_hash": "87f0d903477984d0587a02f8fe185263",
+    "semantic_hash": "87f0d903477984d0587a02f8fe185263"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/CLAUDE.md": {
+    "mtime": 1779719486.5414355,
+    "ast_hash": "82efb97a359f5c7290bf2513d14686be",
+    "semantic_hash": "82efb97a359f5c7290bf2513d14686be"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/.agents/rules/graphify.md": {
+    "mtime": 1779351463.3846378,
+    "ast_hash": "f1e53ecc9194573d3c28fc116c743a2e",
+    "semantic_hash": "f1e53ecc9194573d3c28fc116c743a2e"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/.agents/workflows/graphify.md": {
+    "mtime": 1779351463.3848987,
+    "ast_hash": "afa1ffc01aa56ac681c7335686f44767",
+    "semantic_hash": "afa1ffc01aa56ac681c7335686f44767"
+  },
+  "/home/rockbot/Documents/jagritnokwal.com-v2/.github/copilot-instructions.md": {
+    "mtime": 1779351485.9159253,
+    "ast_hash": "ec2dc0dc7bef63488889f34de2f5584d",
+    "semantic_hash": "ec2dc0dc7bef63488889f34de2f5584d"
   }
 }

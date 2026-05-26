@@ -9,6 +9,15 @@ export const project = defineType({
 
   fields: [
     defineField({
+      name: "mainProject",
+      title: "Main Project",
+      type: "boolean",
+      initialValue: true,
+      description:
+        "When enabled, this project appears in the main section. Disable to move it to the 'More Projects' section.",
+    }),
+
+    defineField({
       name: "visible",
       title: "Visible",
       type: "boolean",
