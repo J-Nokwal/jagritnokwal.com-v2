@@ -1,5 +1,12 @@
 import Link from "next/link";
 import Particles from "../components/particles";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.jagritnokwal.com",
+  },
+};
 
 const navigation = [
   { name: "Projects", href: "/projects" },
