@@ -206,9 +206,9 @@ export default async function Page({
         <div className="space-y-8 md:space-y-16 mx-auto px-6 lg:px-8 pt-20 md:pt-24 lg:pt-32 max-w-7xl">
           <div className="flex lg:flex-row flex-col lg:justify-between lg:items-center mx-auto lg:mx-0 lg:max-w-full max-w-2xl">
             <div>
-              <h2 className="font-bold text-zinc-100 text-3xl sm:text-4xl tracking-tight">
+              <h1 className="font-bold text-zinc-100 text-3xl sm:text-4xl tracking-tight">
                 Projects
-              </h2>
+              </h1>
               <p className="mt-4 text-zinc-400">
                 Some of the projects are from work and some are on my own time.
               </p>
@@ -336,7 +336,7 @@ export default async function Page({
                 <ExtraProjects>
                   <div className="flex items-center gap-4">
                     <div className="flex-1 bg-zinc-800 h-px" />
-                    <span className="text-zinc-500 text-sm font-medium tracking-wide uppercase">
+                    <span className="font-medium text-zinc-500 text-sm uppercase tracking-wide">
                       More Projects
                     </span>
                     <div className="flex-1 bg-zinc-800 h-px" />

@@ -19,6 +19,11 @@ type Props = {
 
 const redis = Redis.fromEnv();
 
+function truncate(text: string | null | undefined, max: number) {
+  if (!text) return undefined;
+  return text.length <= max ? text : text.slice(0, max - 1).trimEnd() + "…";
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -27,19 +32,20 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = await getProjectData(slug);
   if (!project) return {};
+  const description = truncate(project.description, 155);
   return {
     title: project.title,
-    description: project.description ?? undefined,
+    description,
     openGraph: {
       title: project.title ?? undefined,
-      description: project.description ?? undefined,
+      description,
       url: `https://www.jagritnokwal.com/projects/${slug}`,
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
       title: project.title ?? undefined,
-      description: project.description ?? undefined,
+      description,
     },
     alternates: {
       canonical: `https://www.jagritnokwal.com/projects/${slug}`,

@@ -101,6 +101,7 @@ export default async function Page() {
               <Card key={s.href}>
                 <Link
                   href={s.href}
+                  rel="noopener noreferrer"
                   target="_blank"
                   className="group relative flex flex-col items-center gap-4 md:gap-8 p-4 md:p-16 md:py-24 lg:pb-48 duration-700"
                 >
